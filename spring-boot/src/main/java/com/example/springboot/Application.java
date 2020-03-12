@@ -1,5 +1,7 @@
 package com.example.springboot;
 
+import java.util.Arrays;
+
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -18,7 +20,13 @@ public class Application {
 		return args -> {
 			System.out.println("Lets check the beans provided by sboot");
 			
+			String[] beanLabels = context.getBeanDefinitionNames();
+			Arrays.sort(beanLabels);
 			
+			for (String beanLabel : beanLabels) {
+				System.out.println(beanLabel);
+			}
+						
 		};
 	}
 
